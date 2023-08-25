@@ -1,0 +1,50 @@
+---
+const work = [
+  {
+    date: "2022 - PRESENT",
+    title: "Web Applications Developer Intern",
+    company: "OWP",
+    desc: "Developing and maintaining a web application for State Water Board and CDSS, creating apis to handle large datasets.",
+    tags: ["React", "Python", "Javascript", "jQuery", "PHP", "MSSQL"],
+  },
+  {
+    date: "JAN - MAR 2022",
+    title: "Marketing Intern",
+    company: "Hireterra",
+    desc: "Maintained several marketing accounts for outreach and client onboarding.",
+    tags: ["zoominfo", "excel"],
+  },
+];
+---
+
+<div class="grid grid-cols-1 md:grid-cols-4 gap-2">
+  {
+    work.map((w) => (
+      <>
+        <div class="col-span-1">
+          <span class="text-sm text-slate-500 font-medium">{w.date}</span>
+        </div>
+        <div class="col-span-3">
+          <p class="text-lg text-white font-medium">
+            {w.title}&nbsp;&#183;&nbsp;{w.company}
+          </p>
+          <p class="text-slate-400">{w.desc}</p>
+          <div class="flex flex-wrap gap-2 mt-3 text-xs">
+            {w.tags.map((tag) => (
+              <span class="pill">{tag}</span>
+            ))}
+          </div>
+        </div>
+      </>
+    ))
+  }
+</div>
+
+<style>
+  .pill {
+    color: #00ffd1;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background-color: rgb(127, 255, 212, 0.1);
+  }
+</style>

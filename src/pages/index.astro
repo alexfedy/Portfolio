@@ -1,0 +1,163 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Technologies from "../components/technologies.astro";
+import Carousel from "../components/carousel";
+import Projects from "../components/projects.astro";
+import Work from "../components/work.astro";
+import Links from "../components/links.astro";
+const mesh = "/mesh_opt.png";
+---
+
+<Layout title="Alex's Portfolio">
+  <main class="relative px-0">
+    <div class="absolute left-1/2 top-[50vh] -translate-x-1/2 -translate-y-1/2">
+      <img src={mesh} class="hidden md:block w-[600px] max-w-[1000px]" />
+    </div>
+    <section class="space-y-1">
+      <div class="grid gap-1 md:grid-cols-5">
+        <div class="md:col-span-3 link-card">
+          <div class="link-link" class="w-full flex items-center h-full">
+            <p class="uppercase text-xs my-2 text-gray-400">hello, i'm</p>
+            <h1 class="text-4xl md:text-5xl font-light">
+              <span class="text-gradient">Alex Fedorov&nbsp;</span>
+            </h1>
+            <h3 class="text-sm my-2 text-gray-400">
+              <span>Email: fedoalex20@gmail.com</span>
+            </h3>
+          </div>
+        </div>
+
+        <div class="md:col-span-2 link-card">
+          <div class="link-link">
+            <p class="uppercase text-xs my-2 text-gray-400">about me</p>
+            <h2 class="text-lg font-semibold md:text-md lg:text-xl xl:text-2xl">
+              I am a Computer Science student and Software Developer.
+              <span class="text-gray-400"
+                >Currently, I am working on Web Design and Development.</span
+              >
+            </h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="link-card">
+        <div class="link-link">
+          <p class="uppercase text-xs my-6 text-gray-400">featured projects</p>
+          <!-- <img
+								src={src}
+								class="rounded h-full w-full object-cover"
+							/> -->
+          <Carousel client:load />
+        </div>
+      </div>
+
+      <div class="link-card">
+        <div class="link-link">
+          <p class="uppercase text-xs my-2 text-gray-400">work experience</p>
+          <Work />
+        </div>
+      </div>
+
+      <div class="link-card">
+        <div class="link-link">
+          <p class="uppercase text-xs my-2 text-gray-400">Project List</p>
+          <Projects />
+        </div>
+      </div>
+
+      <div class="link-card break-all">
+        <div class="link-link">
+          <Links />
+        </div>
+      </div>
+
+      <br />
+      <p class="uppercase text-xs text-gray-400 text-center">
+        technologies i use
+      </p>
+      <br />
+      <Technologies />
+      <br />
+      <br />
+      <p class="text-xs w-full text-center">Made by Alex Fedorov</p>
+    </section>
+  </main>
+  <!-- grid #2, below top grid -->
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 80vw;
+  }
+  .text-gradient {
+    background-image: linear-gradient(
+      45deg,
+      #ffffff,
+      #454545 30%,
+      var(--dark-card) 60%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+
+  .link-card {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    padding: 0.15rem;
+    background-color: var(--dark-card);
+    background-image: none;
+    background-size: 400%;
+    border-radius: 0.6rem;
+    background-position: 100%;
+    transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .link-card-bt {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    padding: 1rem 1.3rem;
+    background-image: none;
+    background-size: 400%;
+    border-radius: 0.6rem;
+    background-position: 100%;
+    transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .link-link {
+    width: 100%;
+    text-decoration: none;
+    line-height: 1.4;
+    padding: 1rem 1.3rem;
+    border-radius: 0.5rem;
+    color: #white;
+    background-color: var(--dark-card);
+    opacity: 0.8;
+  }
+  h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  p {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    color: #white;
+  }
+  .link-card:is(:hover, :focus-within) {
+    background-position: 0;
+    background-image: var(--accent-gradient);
+  }
+  .link-card:is(:hover, :focus-within) h2 {
+    color: #cccccc;
+  }
+
+  .social-link {
+    color: #bfc0c0;
+    /* color: #ced0ce; */
+  }
+</style>

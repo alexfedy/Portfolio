@@ -1,0 +1,95 @@
+---
+const projectList = [
+  {
+    id: 1,
+    title: "SpaceX Dashboard",
+    languages: "React, Tailwind",
+    link: "https://github.com/alexfedy/SpaceX-Dashboard",
+    live: true,
+    liveLink: "https://space-x-dashboard-two.vercel.app/",
+  },
+  {
+    id: 2,
+    title: "Finance Budget Tracker",
+    languages: "React, Tailwind",
+    link: "https://github.com/alexfedy/budget-tracker",
+    live: true,
+    liveLink: "https://budget-tracker-ivory.vercel.app/",
+  },
+  {
+    id: 3,
+    title: "Random Avatar Generator",
+    languages: "Astro, React",
+    link: "https://github.com/alexfedy/random-avatar-generator",
+    live: true,
+    liveLink: "https://random-avatar-generator-pi.vercel.app/",
+  },
+  {
+    id: 6,
+    title: "Javascript Puzzle Game",
+    languages: "HTML, CSS, JS",
+    link: "https://github.com/alexfedy/gridGame",
+    live: true,
+    liveLink: "https://grid-game-nine.vercel.app/",
+  },
+  {
+    id: 7,
+    title: "Client Website",
+    languages: "Astro, React, TailwindCSS, MDX",
+    link: null,
+    live: true,
+    liveLink: "https://californiadesignsolutions.netlify.app/",
+  },
+  {
+    id: 4,
+    title: "Google Maps Web Scraper",
+    languages: "Python, Selenium",
+    link: "https://github.com/alexfedy/Google-Maps-Distance-Scraper",
+    live: false,
+    liveLink: "",
+  },
+  {
+    id: 5,
+    title: "Real-Time Analytics Web Application API",
+    languages: "NodeJS, Express, MongoDB",
+    link: "https://github.com/alexfedy/CallCenterDashboardAPI",
+    live: false,
+    liveLink: "",
+  },
+  {
+    id: 7,
+    title: "Project Manager",
+    languages: "Typescript, Nextjs, Prisma, Supabase",
+    link: "https://github.com/alexfedy/ProjectManager",
+    live: false,
+    liveLink: "",
+  },
+];
+---
+
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+  {
+    projectList.map((project) => (
+      <div class="p-4 border border-slate-600 rounded-xl shadow-lg hover:shadow-white/10 transition">
+        <p>{project.title}</p>
+        <p class="text-gray-500">{project.languages}</p>
+        <div class="sm:flex gap-4">
+          {project.link && (
+            <div class="w-fit my-2 py-1 px-2 border rounded hover:bg-white/20 transition">
+              <a href={project.link} class="" target="_blank">
+                Code
+              </a>
+            </div>
+          )}
+          {project.live && (
+            <div class="text-center w-fit my-2 py-1 px-2 rounded bg-gradient-to-r from-blue-500 to-sky-600 hover:scale-105 transition">
+              <a href={project.liveLink} class="" target="_blank">
+                Live Link
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+    ))
+  }
+</div>

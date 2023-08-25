@@ -1,0 +1,57 @@
+---
+import "@fontsource/dm-sans";
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+<style is:global>
+  :root {
+    --dark-bg: #121212;
+    --dark-card: #161616;
+    --accent: 29, 29, 29;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      #2a2a2a 30%,
+      var(--dark-card) 60%
+    );
+  }
+  body {
+    font-family: "DM Sans", system-ui, sans-serif;
+  }
+  html {
+    background-color: var(--dark-bg);
+    color: white;
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -2px;
+  }
+  code {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+  }
+</style>
